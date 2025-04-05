@@ -20,7 +20,7 @@ Weather App of Doom is a powerful, responsive weather dashboard that provides ac
 
 ## 🚀 Live Demo
 
-Visit the live application: [Weather App of Doom](https://weather-app-of-doom.onrender.com)
+Visit the live application: [Weather App of Doom](https://weather-app-of-doom9.onrender.com)
 
 ## 🛠️ Technologies
 
