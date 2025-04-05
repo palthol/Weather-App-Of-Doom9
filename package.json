@@ -2,7 +2,10 @@
   "name": "weather-dashboard",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server/dist/server.js",
+  "engines": {
+    "node": ">=16"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run client:build && npm run server",
@@ -13,7 +16,7 @@
     "client:build": "cd client && npm run build",
     "client:dev": "cd client && npm run dev",
     "build": "cd client && npm run build",
-    "render-build": "npm install && npm run build"
+    "render-build": "npm install && npm run build && cp -r ./server/.env ./server/dist/.env"  
   },
   "keywords": [],
   "author": "",

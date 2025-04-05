@@ -13,7 +13,7 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT ?? 3001;
 
 // Serve static files of entire client dist folder
 app.use(express.static(path.join(__dirname, '../../client/dist')));
@@ -22,8 +22,18 @@ app.use(express.static(path.join(__dirname, '../../client/dist')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Add a health check endpoint for Render
+app.get('/health', (_req, res) => {
+  res.status(200).send('OK');
+});
+
 // Implement middleware to connect the routes
 app.use(routes);
+
+// Catch-all route for client-side routing
+app.get('*', (_req, res) => {
+  res.sendFile(path.join(__dirname, '../../client/dist/index.html'));
+});
 
 // Start the server on the port
 app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`));
